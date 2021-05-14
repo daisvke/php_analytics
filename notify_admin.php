@@ -18,7 +18,6 @@ function notify_visit_name($name, $datetime)
 function notify_visit_country($datetime, $code, $page = "/mypage.php")
 {
     $to = 'my@mail.com';
-
     $body = "Visit notification:\n"
     . "=========================================\n"
     . " ISO country code: $code\n" 
@@ -35,24 +34,20 @@ function notify_visit_country($datetime, $code, $page = "/mypage.php")
 
 // By IP address
 function notify_visit_ip($ip, $datetime, $page = "/mypage.php")
-{
-    if ($ip == "184.154.76.12"
-		|| $ip == "2a00:5ba0:10:2242:3c52:7dff:fee6:7714") {
-        $to = 'my@mail.com';
-
-        $body = "Visit notification:\n"
-        . "=========================================\n"
-        . " IP: $ip\n Date-time: $datetime\n"
-        . "=========================================\n";
-        $subject = "MYWEBSITE | WARNING: UNWANTED VISITOR";
-        // Send mail
-        mail($to, $subject, $body);
-		// Redirect to mypage.php
-        ?>
-        <script>
-            window.location.replace("<?php echo URL; echo $page; ?>")
-        </script>;
-        <?php
-    }
+{ 
+	$to = 'my@mail.com';
+	$body = "Visit notification:\n"
+	. "=========================================\n"
+	. " IP: $ip\n Date-time: $datetime\n"
+	. "=========================================\n";
+	$subject = "MYWEBSITE | WARNING: UNWANTED VISITOR";
+	// Send mail
+	mail($to, $subject, $body);
+	// Redirect to mypage.php
+	?>
+	<script>
+		window.location.replace("<?php echo URL; echo $page; ?>")
+	</script>;
+	<?php
 }
 ?>

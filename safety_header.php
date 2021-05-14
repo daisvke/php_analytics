@@ -108,5 +108,7 @@ $unwanted_country_code = "AL";
 if ($ip_country == $unwanted_country_code)
     notify_visit_country($visit_datetime, $unwanted_country_code);
 // By IP address
-notify_visit_ip($ip, $visit_datetime);
+if ($ip == "184.154.76.12"
+	|| $ip == "2a00:5ba0:10:2242:3c52:7dff:fee6:7714")
+    notify_visit_ip($ip, $visit_datetime);
 ?>

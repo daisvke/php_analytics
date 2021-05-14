@@ -2,18 +2,15 @@
 // Send email to notify the admin of the visit of a particular user
 function notify_visit_name($name, $datetime)
 {
-    if ($name == "") {
-        $to = 'my@mail.com';
-        $name = validateInput($name);
-        $body = "$name visited your website !\n"
-        . "=========================================\n"
-        . " Date-time: $datetime\n"
-	    . "=========================================\n";
-        $subject = "MYWEBSITE | That user came";
-        // Send mail
-        mail($to, $subject, $body);
-    }
-oo
+	$to = 'my@mail.com';
+	$name = validateInput($name);
+	$body = "$name visited your website !\n"
+	. "=========================================\n"
+	. " Date-time: $datetime\n"
+	. "=========================================\n";
+	$subject = "MYWEBSITE | That user came";
+	// Send mail
+	mail($to, $subject, $body);
 }
 
 // Notify of unwanted visits and redirect to another page

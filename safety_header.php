@@ -2,7 +2,6 @@
 include("ip_check.php");
 include("input_check.php");
 include("notify_admin.php");
-session_start();
 
 //
 // IP ADDRESS
@@ -10,7 +9,6 @@ session_start();
 // Determine the IP address of the visitor
 
 $ip = get_ip_address();
-$_SESSION['ip'] = $ip;
 
 //
 // DATABASE/USER
@@ -59,7 +57,9 @@ if ($data = $req->fetch()) {
     input_check_query($db, $ip);
 
     // Send mail to admin to notify of the visit of a particular user
-    //notify_visit_name($data['name'], $visit_datetime);
+    $unwanted_name = "Unwanted Name";
+    if ($data['name'] == $unwanted_name)
+        notify_visit_name($unwanted_name, $visit_datetime);
 } else { //  If user is new, create new profile on database
     $req = $db->prepare('
             INSERT INTO users(

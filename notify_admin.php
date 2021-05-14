@@ -3,10 +3,10 @@
 function notify_visit_name($name, $datetime)
 {
     if ($name == "") {
-        $to = 'info@d.zd.lu';
+        $to = 'my@mail.com';
         $name = validateInput($name);
         $body = "$name visited your website !\n=========================================\n Date-time: $datetime\n=========================================\n\n";
-        $subject = "d. | That user came";
+        $subject = "MYWEBSITE | That user came";
 // Send mail
         mail($to, $subject, $body);
     }
@@ -14,31 +14,29 @@ function notify_visit_name($name, $datetime)
 
 // Notify of unwanted visits and redirect to another page
 // By county code
-function notify_visit_country($country_code, $datetime, $code, $page = "/access_SHDK677662GJ32S.php")
+function notify_visit_country($datetime, $code, $page = "/mypage.php")
 {
-    if ($country_code == $code) {
-        $to = 'info@d.zd.lu';
-        $body = "Visit notification:\n=========================================\n ISO country code: $code\n Date-time: $datetime\n =========================================\n\n";
-        $subject = "d. | WARNING: UNWANTED VISITOR";
-        // Send mail
-        mail($to, $subject, $body);
-        // Redirect to Paypal-access page
-        ?>
-        <script> window.location.replace("<?php echo URL; echo $page; ?>")</script>";
-        <?php
-    }
+    $to = 'my@mail.com';
+    $body = "Visit notification:\n=========================================\n ISO country code: $code\n Date-time: $datetime\n =========================================\n\n";
+    $subject = "MYWEBSITE | WARNING: UNWANTED VISITOR";
+    // Send mail
+    mail($to, $subject, $body);
+    // Redirect to mypage.php
+    ?>
+    <script> window.location.replace("<?php echo URL; echo $page; ?>")</script>";
+    <?php
 }
 
 // By IP address
-function notify_visit_ip($ip, $datetime, $page = "/access_SHDK677662GJ32S.php")
+function notify_visit_ip($ip, $datetime, $page = "/mypage.php")
 {
     if ($ip == "184.154.76.12" || $ip == "2a00:5ba0:10:2242:3c52:7dff:fee6:7714") {
-        $to = 'info@d.zd.lu';
+        $to = 'my@mail.com';
         $body = "Visit notification:\n=========================================\n IP: $ip\n Date-time: $datetime\n=========================================\n\n";
-        $subject = "d. | WARNING: UNWANTED VISITOR";
+        $subject = "MYWEBSITE | WARNING: UNWANTED VISITOR";
         // Send mail
         mail($to, $subject, $body);
-        // Redirect to Paypal-access page
+    	// Redirect to mypage.php
         ?>
         <script> window.location.replace("<?php echo URL; echo $page; ?>")</script>";
         <?php

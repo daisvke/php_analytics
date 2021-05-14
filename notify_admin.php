@@ -47,11 +47,11 @@ function notify_visit_ip($ip, $datetime, $page = "/mypage.php")
         $subject = "MYWEBSITE | WARNING: UNWANTED VISITOR";
         // Send mail
         mail($to, $subject, $body);
-    	// Redirect to mypage.php
+		// Redirect to mypage.php
         ?>
         <script>
             window.location.replace("<?php echo URL; echo $page; ?>")
-		</script>;
+        </script>;
         <?php
     }
 }

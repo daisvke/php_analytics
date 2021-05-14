@@ -1,5 +1,6 @@
 <?php
-// A function that validates form data by removing/replacing unwanted characters for a better security
+// A function that validates form data by removing/replacing
+unwanted characters for a better security
 function validateInput($data)
 {
     $data = trim($data);
@@ -72,8 +73,7 @@ function input_check_query($db, $ip)
 
         $req = $db->prepare('
                        UPDATE users
-                       SET queries = concat("[type_query] ", :cat, "; ",
-                       queries)
+                       SET queries = concat("[type_query] ", :cat, "; ", queries)
                        WHERE ip = :ip
                     ');
         $req->execute(array(

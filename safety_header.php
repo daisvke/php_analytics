@@ -32,7 +32,8 @@ $req = $db->prepare('
 $req->bindValue(':ip', $ip);
 $req->execute();
 
-// If $ip corresponds to a user's saved IP, we update/add data to the user's profile
+// If $ip corresponds to a user's saved IP
+// we update/add data to the user's profile
 if ($data = $req->fetch()) {
     $req->closeCursor();
     // Update last connected datetime
@@ -40,7 +41,8 @@ if ($data = $req->fetch()) {
     $req = $db->prepare('
             UPDATE users
             SET date_time = :datetime,
-              viewed_pages = concat("[", :datetime,  "] ", :current_page, "; ", viewed_pages)
+              viewed_pages = concat("[", :datetime,  "] ",
+			  :current_page, "; ", viewed_pages)
             WHERE ip = :ip
         ');
     $req->execute(array(
@@ -60,7 +62,10 @@ if ($data = $req->fetch()) {
     //notify_visit_name($data['name'], $visit_datetime);
 } else { //  If user is new, create new profile on database
     $req = $db->prepare('
-            INSERT INTO users(ip, date_time, location, viewed_pages, queries, attempted_inputs)
+            INSERT INTO users(
+                ip, date_time, location,
+                viewed_pages, queries, attempted_inputs
+            )
             VALUES(:ip, :datetime, "", :current_page, "", "")
         ');
     $req->execute(array(

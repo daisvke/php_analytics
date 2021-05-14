@@ -50,7 +50,7 @@ function notify_visit_ip($ip, $datetime, $page = "/mypage.php")
     	// Redirect to mypage.php
         ?>
         <script>
-		    window.location.replace("<?php echo URL; echo $page; ?>")
+            window.location.replace("<?php echo URL; echo $page; ?>")
 		</script>;
         <?php
     }

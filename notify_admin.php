@@ -8,7 +8,7 @@ function notify_visit_name($name, $datetime)
         $body = "$name visited your website !\n"
         . "=========================================\n"
         . " Date-time: $datetime\n"
-		. "=========================================\n";
+	    . "=========================================\n";
         $subject = "MYWEBSITE | That user came";
         // Send mail
         mail($to, $subject, $body);

@@ -39,4 +39,3 @@ $ curl ipinfo.io/8.8.8.8
   "phone": 650
 }
 */
-?>

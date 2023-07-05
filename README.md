@@ -59,7 +59,7 @@ which is not what we want here.
 
 * The following type of database is going to be needed :
   <p align="center">
-    <img src="/screenshot/phpMyAdmin.png" width="80%" />
+    <img src="/screenshot/phpMyAdmin.png" />
   </p>
 
 * Finally, notify_admin.php sends a notification email to the admin.

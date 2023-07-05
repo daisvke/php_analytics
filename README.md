@@ -40,7 +40,7 @@ the pages they have visited, the posts they have made, etc.
                     $ip,
                     FILTER_VALIDATE_IP,
                     FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
-                    ) !== false){
+                    ) !== false) {
                     echo "ip: $ip     key: $key<br />";
                     return $ip;
                 }

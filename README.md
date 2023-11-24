@@ -17,7 +17,7 @@ the pages they have visited, the posts they have made, etc.
     - attempted_inputs (tried passwords on login pages (login1 and login2 as examples))
 
 * In most cases the original IP of a user surfing behind proxies is not going to be revealed with this code.
-  We tried using the code above and realized that SERVER['REMOTE_ADDR'], which would only wrap the IP address
+  We tried using the code below and realized that SERVER['REMOTE_ADDR'], which would only wrap the IP address
   of the last used proxy, contained the only reliable value:
   ```php
   function get_ip_address(){
